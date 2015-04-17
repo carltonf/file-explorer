@@ -21,11 +21,11 @@ $(document).ready(function() {
   folder.open(open_dir);
   addressbar.set(open_dir);
 
-  folder.on('navigate', function(dir, mime) {
-    if (mime.type == 'folder') {
-      addressbar.enter(mime);
+  folder.on('navigate', function(fpath, mime_type) {
+    if (mime_type == 'inode/directory') {
+      addressbar.enter(fpath);
     } else {
-      gui.Shell.openItem(mime.path);
+      gui.Shell.openItem(fpath);
     }
   });
 
