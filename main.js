@@ -96,7 +96,7 @@ $(document).ready(function() {
     });
 
   // can't use "#files" as it serves as delegator for ".file"
-  $("#files-row").on('contextmenu', function(ev){
+  $("#files-view").on('contextmenu', function(ev){
     $("#files").children('.focus').removeClass('focus');
     files_view_ctx_menu.target = "<files view blank>"
     files_view_ctx_menu.popup(ev.pageX, ev.pageY);

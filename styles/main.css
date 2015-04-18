@@ -12,6 +12,7 @@ body {
   width: 100%;
   /* TODO don't need breadcrumb anymore? */
   padding: 0px;
+  margin-bottom: 10px;
 }
 
 #addressbar .btn {
@@ -177,19 +178,9 @@ img {
     width: 100%;
 }
 
-#addr-and-files {
-    float: left;
-    position: absolute;
-    left: 200px;
-    right: 0;
-    top: 0;
-    bottom: 50px;
-}
-
-#files-row {
+#files-view {
     background: #FFF;
     -webkit-border-radius: 2px;
-    margin: -5px 1px 0 -15px;
     height: 100%;
     overflow: auto;
 }
@@ -212,8 +203,13 @@ body > div {
     bottom: 10px;
 }
 
-#nav-and-mainview {
+#mainview,
+#mainview > div {
+    height: 100%;
+}
+
+#nav-sidebar {
     float: left;
     width: 160px;
-    padding: 8px;
+    margin-right: 8px;
 }
