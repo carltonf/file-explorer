@@ -3,7 +3,9 @@
 }
 
 body {
-  background-image: url('../assets/images/htmlbg.png')
+  background-image: url('../assets/images/htmlbg.png');
+  /* don't show horizontal scrollbar */
+  overflow: hidden;
 }
 
 .files {
