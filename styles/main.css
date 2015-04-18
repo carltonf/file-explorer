@@ -45,10 +45,12 @@ body {
   width: 100%;
 }
 
-
-.icon-view .file.focus .name {
+.file.focus .name {
   background-color: #08C;
   -webkit-border-radius: 4px;
+}
+
+.icon-view .file.focus .name {
   /* disable ellipses */
   display: block;
   max-height: none;
@@ -131,7 +133,14 @@ body {
   font-size: small;
 }
 
-.focus.file * {
+.list-view .file .name:hover {
+  white-space: nowrap;
+  /* Q: overflow-y: visible set to visible would create larger height... */
+  overflow-x: visible;
+  text-overflow: clip;
+}
+
+.icon-view .file.focus * {
   white-space: normal;
   overflow: visible;
   text-overflow: clip;
