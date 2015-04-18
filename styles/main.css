@@ -57,7 +57,8 @@ body {
   z-index: 1000;
 }
 
-.icon-view .file .name:hover {
+/* Non focused file hovered to highlight file name */
+.icon-view .file:not(.focus) .name:hover {
   /* border: 1px solid grey; */
   border-radius: 5px;
   background: #f5f5f5;
