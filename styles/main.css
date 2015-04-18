@@ -8,6 +8,30 @@ body {
   overflow: hidden;
 }
 
+#addressbar.breadcrumb {
+  width: 100%;
+  /* TODO don't need breadcrumb anymore? */
+  padding: 0px;
+}
+
+#addressbar .btn {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+#addressbar>:last-child {
+  display: none;
+}
+
+#addressbar .path-part-dropdown {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+#addressbar .path-part.btn {
+  font-weight: bold;
+}
+
 .files {
   padding: 0;
   margin: 0;

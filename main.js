@@ -23,13 +23,15 @@ $(document).ready(function() {
 
   folder.on('navigate', function(fpath, mime_type) {
     if (mime_type == 'inode/directory') {
-      addressbar.enter(fpath);
+      folder.open(fpath);
+      addressbar.set(fpath);
     } else {
       gui.Shell.openItem(fpath);
     }
   });
 
   addressbar.on('navigate', function(dir) {
+    addressbar.set(dir);
     folder.open(dir);
   });
 

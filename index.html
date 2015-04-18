@@ -4,6 +4,7 @@
 <title>File Explorer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="styles/main.css" rel="stylesheet">
 <!-- Main NodeJS entry for the files  -->
@@ -32,8 +33,8 @@
   </div>
 
   <div id="addr-and-files">
-    <div class="row" id="addressbar-row">
-      <ul id="addressbar" class="breadcrumb"></ul>
+    <div id="addressbar-row" class="row">
+      <div id="addressbar" class="breadcrumb btn-group" role="group" ></div>
     </div>
     <div id="files-row" class="row">
       <ul id="files" class="icon-view"></ul>
