@@ -191,6 +191,19 @@ img {
 
 #files {
     margin: 5px;
+    /* 29px = 5 + (12 + 2) + 10
+     * 5: current #files margin-right
+     * (12 + 2): right margin and right padding of .file
+     * 10: the amount we allow the right border "eats in"
+     *
+     * TODO Though a slightly better handling of the right blank space issue
+     * while SHRINKING, this one is not perfect. One look at Windows Explorer
+     * shows that the size of .file is dynamic according to resizing. So this
+     * part should be achieved with JS. Kept here as an demo for how negative
+     * margin can be used.
+     *
+     */
+    margin-right: -30px;
     /* overrides user agent setting */
     -webkit-padding-start: 0px;
 }
