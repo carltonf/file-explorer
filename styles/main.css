@@ -8,14 +8,17 @@ body {
   overflow: hidden;
 }
 
-#addressbar.breadcrumb {
-  width: 100%;
-  /* TODO don't need breadcrumb anymore? */
+#addressbar-wrapper {
   padding: 0px;
   margin-bottom: 10px;
+  background-color: rgb(244, 242, 242);
 }
 
-#addressbar .btn {
+#sidebar-toggle {
+  float: left;
+}
+
+#addressbar-view .btn {
   padding-top: 2px;
   padding-bottom: 2px;
 }
@@ -203,13 +206,61 @@ body > div {
     bottom: 10px;
 }
 
+/* In creating responsive sidebar, the key is the sidebar width, in our case it's 250px.
+   This is one of the main reason we should use SASS, which supports variables!!! */
 #mainview,
 #mainview > div {
     height: 100%;
 }
 
+#mainview {
+  /* animation for sidebar */
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#mainview.with-sidebar {
+  padding-left: 250px;
+}
+
+#nav-sidebar-wrapper {
+  position: absolute;
+  left: 0;
+  overflow: hidden;
+  margin-right: 8px;
+  background-color: white;
+  border-right: 4px solid #b0c4de;
+  padding: 5px 10px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+
+  width: 0px;
+  /* none is bad, as you can't have any animation */
+  /* display: none; */
+}
+
 #nav-sidebar {
-    float: left;
-    width: 160px;
-    margin-right: 8px;
+  /* together with overflow-y in #nav-sidebar-wrapper, this enables nice vertical
+scrolling */
+  padding-bottom: 30px;
+}
+
+#mainview.with-sidebar #nav-sidebar-wrapper{
+  width: 250px;
+  /* display: block; */
+  overflow-y: auto;
+}
+
+#files-view-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+#mainview.width-sidebar #files-view-wrapper {
+  position: relative;
+  margin-right: 0px;
 }

@@ -1,0 +1,50 @@
+/* 
+
+Pure CSS Sidebar autohiding implementation, when window size becomes too small,
+auto hide side bar. Make sure this part comes after the same set of selectors
+without "@media". Based on
+https://github.com/IronSummitMedia/startbootstrap-simple-sidebar
+
+NOTE: The algorithms are simple, the meaning of ".with-sidbar" is reversed
+within the "@media" rule set, i.e. ".with-sidbar" in small screen means "without
+sidebar". The position change (from "relative" to "absolute") is to achieve "On
+small screens, the page content will be pushed off canvas."
+
+ISSUE: Since the reverse is mutual, an opened sidebar in small screen would be
+closed automatically when user enlarge the window. This is problematic as one
+reason users would enlarge the window with sidebar opened is to have a larger
+window with sidebar. A fix is to use JS to monitor window resize event with
+state tracking.
+
+*/
+@media screen and (max-width:768px) {
+  #mainview {
+    padding-left: 250px
+  }
+
+  #mainview.with-sidebar {
+    padding-left: 0;
+  }
+
+  #mainview #nav-sidebar-wrapper {
+    width: 250px;
+  }
+
+  #mainview.with-sidebar #nav-sidebar-wrapper {
+    width: 0px;
+  }
+
+  #mainview #files-view-wrapper {
+    position: absolute;
+    /* with box model, negative margin is like moving the element, in this case
+#files-view-wrapper is moved 250px to right. The difference from using left or
+right is that negative-margin moving is relative to flow and add up existing
+absolute/relative positioning offset automatically. Brilliant! */
+    margin-right: -250px;
+  }
+
+  #mainview.width-sidebar #files-view-wrapper {
+    position: absolute;
+    margin-right: 0;
+  }
+}

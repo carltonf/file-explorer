@@ -102,5 +102,46 @@ $(document).ready(function() {
     files_view_ctx_menu.popup(ev.pageX, ev.pageY);
     return false;
   })
+
+  ////////////////////////////////////////////////////////////////
+  // sidebar with resize event monitored.
+  var nav_old_natural_state = "<invalid>"
+
+  $("#sidebar-toggle").click(function(e) {
+    e.preventDefault();
+    /* if ( ! $("#mainview").hasClass("with-sidebar") ){
+
+       } */
+    nav_old_natural_state = "<invalid>"
+    $("#mainview").toggleClass("with-sidebar");
+  });
+
+  var last_win_size = $(window).width();
+  $(window).resize(function(e){
+    var cur_win_size = $(window).width();
+    // 1. No shaking!
+    // 2. Whenever enter small-size, always hiding. Avoid repeated removClass.
+    // 3. Try to restore previous state if user has not manually toggled state.
+
+    if (Math.abs(cur_win_size - last_win_size) > 10){
+      if ( (cur_win_size < 768)
+           && (cur_win_size < last_win_size)
+           && $("#mainview").hasClass("with-sidebar")){
+        $("#mainview").removeClass("with-sidebar")
+        // Only store a natural state if shrinking-auto-hiding is activated.
+        // Become invalid, whenever manual toggle happens and a restoring happens.
+        nav_old_natural_state = "with-sidebar"
+      }
+
+      if ( cur_win_size > 768
+           && (cur_win_size > last_win_size)
+           && nav_old_natural_state === "with-sidebar"){
+        $("#mainview").addClass("with-sidebar")
+        nav_old_natural_state = "<invalid>"
+      }
+    }
+
+    last_win_size = cur_win_size;
+  })
 });
 
